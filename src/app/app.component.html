@@ -7,36 +7,71 @@
 	<div class="container">	
 		<header *ngIf="start">
 			<div class="row">
-				<div class="col-md-4"><h3>Score</h3></div>
-				<div class="col-md-4"><h3>Question {{currentIndex}} of {{questions.length}}</h3></div>
-				<div class="col-md-4"><h3>Time</h3></div>
+				<div class="col-md-12">&nbsp;</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12"><h3>Quiz in Angular (SPA)</h3></div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center"><h3>HTML Quiz</h3></div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-md-4"><span class="droplets">Question {{currentIndex + 1 }} / {{questions.length}}</span></div>
+				<div class="col-md-4 text-center"><span class="droplets">Score 0 / {{questions.length}}</span></div>
+				<div class="col-md-4 text-right"><span class="droplets">Time</span></div>
 			</div>
 		</header>
-		<div class="quiz-container">
+		<div class="container">
+			<div class="row"><div class="col-md-12"><p>&nbsp;</p></div></div>
 			<div class="row" *ngIf="start">
 				<div class="col-md-12">
-				<h5 class="status">{{currentIndex + 1 }} / {{questions.length}}</h5>
 				<h5>{{currentQuestionSet.question}}</h5>
 				<div *ngFor="let o of currentQuestionSet.option">
 					<div class="radio-button">
-					<label class="radio-button__label-wrapper" for="{{o.optionid}}">
-						<h3 class="radio-button__label-title">
-						{{o.name}}
-						</h3>
-						<input type="radio" name="sharing_preference" id="{{o.optionid}}" value="{{o.optionid}}" class="radio-button__input">
-						<div class="radio-button__custom-indicator"></div>  </label>
+						<label class="radio-button__label-wrapper" for="{{o.optionid}}">
+							<h5 class="radio-button__label-title">
+							{{o.name}}
+							</h5>
+							<input type="radio" name="sharing_preference" id="{{o.optionid}}" value="{{o.optionid}}" class="radio-button__input">
+							<div class="radio-button__custom-indicator"></div>  
+						</label>
 					</div>
 				</div>
 				</div>
 			</div>
+			<div class="row"><div class="col-md-12"><p>&nbsp;</p></div></div>
 			<div class="row" *ngIf="start">
-				<div class="col-md-4">
-				<button type="button" class="btn btn-primary" (click)="next()" *ngIf="(currentIndex+1) != questions.length">
-					Next
-				</button>
-				<button type="button" class="btn btn-primary" (click)="submit()" *ngIf="(currentIndex+1) >= questions.length">
-					Submit
-				</button>
+				<div class="col-md-3">&nbsp;</div>
+				<div class="col-md-6">
+					<ul class="actions">
+						<li>
+							<button type="button" class="btn btn-primary btn-action">First</button>
+						</li>
+						<li>
+							<button type="button" class="btn btn-primary btn-action">Previous</button>
+						</li>
+						<li>
+							<button type="button" class="btn btn-primary btn-action" (click)="next()">Next</button>
+						</li>
+						<li>
+							<button type="button" class="btn btn-primary btn-action">Last</button>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-3">&nbsp;</div>
+			</div>
+			<div class="row"><div class="col-md-12"><p>&nbsp;</p></div></div>
+			<div class="row" *ngIf="start">
+				<div class="col-md-12">
+					<ul class="actions">
+						<li>
+							<button type="button" class="btn btn-primary" (click)="submit()">Submit</button>
+						</li>
+						<li>
+							<button type="button" class="btn btn-primary">Review</button>
+						</li>
+					</ul>
 				</div>
 			</div>
 			<div class="row">
